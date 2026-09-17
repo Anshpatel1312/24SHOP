@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Registration - 24SHOP</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .page-container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        /* FORM */
+
+        .form-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-border);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .form-card-header {
+            margin-bottom: 36px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        .form-card-header h1 {
+            font-family: var(--font-heading);
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .form-card-header p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-top: 4px;
+        }
+
+        .section-box {
+            background: #f8fafc;
+            border: 1px solid var(--gray-border);
+            border-radius: var(--radius-md);
+            padding: 28px;
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid var(--gray-border);
+            border-radius: var(--radius-md);
+            outline: none;
+            font-size: 15px;
+            transition: var(--transition-fast);
+            background: var(--white);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+        }
+
+        .gender-options {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            height: 48px;
+        }
+
+        .gender-options label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        /* FORM BUTTONS */
+        .form-actions-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+            margin-top: 36px;
+        }
+
+        .form-actions-row .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .form-actions-row .btn-primary {
+            flex: 2;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+            transition: all 0.25s ease;
+        }
+
+        .form-actions-row .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+        }
+
+        .form-actions-row .btn-secondary {
+            flex: 1;
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            background-color: #f1f5f9;
+            color: #475569;
+            border: 1px solid var(--gray-border);
+            transition: all 0.25s ease;
+        }
+
+        .form-actions-row .btn-secondary:hover {
+            background-color: #e2e8f0;
+            color: #1e293b;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .form-card {
+                padding: 24px;
+            }
+
+            .form-actions-row {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .form-actions-row .btn {
+                width: 100%;
+                flex: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-cart-shopping logo-cart"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="brand-num">24</span>
+                    <span class="brand-word">SHOP</span>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <a href="index.php" class="btn btn-secondary" style="padding:8px 18px; font-size:14px;">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Shop
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <div class="form-card">
+            <div class="form-card-header">
+                <h1><i class="fa-solid fa-store" style="color:var(--primary); margin-right:10px;"></i> Seller
+                    Registration</h1>
+                <p>Register your merchant account to reach millions of 24SHOP customers worldwide</p>
+            </div>
+
+            <form action="sellertable.php" method="POST" enctype="multipart/form-data">
+
+                <!-- Section 1: Seller Details -->
+                <div class="section-box">
+                    <div class="section-title">
+                        <i class="fa-solid fa-user-gear"></i> Seller Personal Info
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" name="sellername" class="form-control" placeholder="e.g. Alex Morgan"
+                                oninput="this.value=this.value.replace(/[^a-zA-Z]/, '')" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" name="email" class="form-control" placeholder="alex@merchant.com"
+                                oninput="this.value=this.value.replace(/[^a-zA-Z0-9@.]/, '')" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mobile Number *</label>
+                            <input type="number" name="mobile" maxlength="10" class="form-control"
+                                placeholder="10-digit mobile number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <div class="gender-options">
+                                <label><input type="radio" name="gender" value="Male" checked> Male</label>
+                                <label><input type="radio" name="gender" value="Female"> Female</label>
+                                <label><input type="radio" name="gender" value="Other"> Other</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password *</label>
+                            <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Confirm Password *</label>
+                            <input type="password" name="confirmPassword" class="form-control" placeholder="••••••••"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="date" name="dob" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Pincode</label>
+                            <input type="text" name="pincode" maxlength="6" class="form-control" placeholder="400001">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Personal Address</label>
+                            <textarea name="address" rows="2" class="form-control"
+                                placeholder="Enter residential address"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" name="city" class="form-control" placeholder="e.g. Ahmedabad">
+                        </div>
+
+                        <div class="form-group">
+                            <label>State</label>
+                            <input type="text" name="state" class="form-control" placeholder="e.g. Gujarat">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Shop Details -->
+                <div class="section-box">
+                    <div class="section-title">
+                        <i class="fa-solid fa-shop"></i> Store & Business Details
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Shop Name *</label>
+                            <input type="text" name="shop_name" class="form-control"
+                                placeholder="e.g. Apex Tech Solutions" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Shop Owner Name *</label>
+                            <input type="text" name="owner_name" class="form-control" placeholder="Owner Full Name"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>GST Number</label>
+                            <input type="text" name="gst_number" class="form-control" placeholder="GSTIN" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>UPI ID</label>
+                            <input type="text" name="upi_id" class="form-control" placeholder="merchant@upi">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Shop Address</label>
+                            <textarea name="shop_address" rows="2" class="form-control"
+                                placeholder="Enter store physical address"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Shop Pincode</label>
+                            <input type="text" name="shop_pincode" maxlength="6" class="form-control"
+                                placeholder="e.g. 380001" oninput="this.value=this.value.replace(/[^0-9]/g, '')">
+                        </div><br>
+
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" name="shop_city" class="form-control" placeholder="Store city">
+                        </div>
+
+                        <div class="form-group">
+                            <label>State</label>
+                            <input type="text" name="shop_state" class="form-control" placeholder="Store state">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Bank Account Number</label>
+                            <input type="text" name="bank_account_number" class="form-control"
+                                placeholder="Account Number">
+                        </div>
+
+                        <div class="form-group">
+                            <label>IFSC Code</label>
+                            <input type="text" name="ifsc_code" class="form-control" placeholder="Bank IFSC Code">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Business Registration Certificate (Optional)</label>
+                            <input type="file" name="registration_certificate" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions-row">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-store"></i> Register as Seller
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                        <i class="fa-solid fa-rotate-left"></i> Reset
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
